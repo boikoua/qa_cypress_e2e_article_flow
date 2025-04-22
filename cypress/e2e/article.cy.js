@@ -63,13 +63,8 @@ describe('Tests for Article flow', () => {
 
     cy.visit('/');
     cy.contains('.nav-link', 'Global Feed').click();
-    cy.contains('.preview-link > h1', `Article title: ${article.title}`).should(
-      'exist'
-    );
-    cy.contains(
-      '.preview-link > h1',
-      `Article title: ${article.title}`
-    ).click();
+    cy.contains('.preview-link > h1', article.title).should('exist');
+    cy.contains('.preview-link > h1', article.title).click();
 
     cy.contains('.btn', 'Delete Article').should('be.visible');
     cy.contains('.btn', 'Delete Article').click();
